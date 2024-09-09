@@ -4,3 +4,4 @@ from consulta.viewsets import ConsultaViewSet
 
 consulta_router = routers.DefaultRouter()
 consulta_router.register('consulta', ConsultaViewSet)
+urlpatterns = consulta_router.urls
