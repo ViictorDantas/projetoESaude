@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
-
+from endereco.models import Endereco
 
 class Usuario(AbstractUser):
     generos =[
@@ -13,10 +13,9 @@ class Usuario(AbstractUser):
     data_nascimento = models.DateField()
     genero = models.CharField(max_length=1, choices= generos)
     email = models.EmailField(max_length=255, unique=True)  # Já existe no AbstractUser
-    rua = models.CharField(max_length=200)
-    bairro = models.CharField(max_length=100)
-    numero_residencia = models.CharField(max_length=10) 
-    cep = models.CharField(max_length=8)  # formato xxxxxxxx (sem hífen)
+
+    #chamando endereço
+    endereco = models.OneToOneField(Endereco, verbose_name=("endereço"), on_delete=models.CASCADE, null=True, blank=True)
 
     groups = models.ManyToManyField(
         Group,
