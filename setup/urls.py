@@ -4,10 +4,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from usuario.router import usuario_router
 from paciente.router import paciente_router
+from endereco.router import endereco_router
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(usuario_router.urls)),
     path('api/v1/', include(paciente_router.urls)),
+    path('api/v1/', include(endereco_router.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

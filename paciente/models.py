@@ -1,6 +1,18 @@
 from django.db import models
 from usuario.models import Usuario
 
+'''
+
+CRIAR API
+passo 1 Criar Models
+passo 2 Criar o Serializers
+passo 3 Criar viewsets
+passo 4 criar routers
+passo 5 incluir a rota na ulrs.py do setup
+passo 6 colocar o admin
+
+'''
+
 class Paciente(Usuario):
 
     plano_saude = models.CharField(max_length=100, blank=True, null=True)  # Plano de saúde do paciente
