@@ -15,10 +15,7 @@ passo 6 colocar o admin
 
 class Paciente(Usuario):
 
-    plano_saude = models.CharField(max_length=100, blank=True, null=True)  # Plano de saúde do paciente
-    numero_cartao_sus = models.CharField(max_length=15, blank=True, null=True)  # Número do cartão SUS
-    alergias = models.TextField(blank=True, null=True) 
-    historico_medico = models.TextField(blank=True, null=True) 
+    plano_saude = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
         verbose_name = 'Paciente'
@@ -29,3 +26,21 @@ class Paciente(Usuario):
 
     def __str__(self):
         return f'Paciente: {self.first_name} {self.last_name}'
+
+class Consulta(models.Model):
+    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, related_name="consultas")
+    medico = models.ForeignKey(Usuario, on_delete=models.SET_NULL, null=True, related_name="consultas_medico")
+    data_horario = models.DateTimeField()
+    motivo = models.TextField(blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Consulta'
+        verbose_name_plural = 'Consultas'
+        ordering = ['data_horario']
+
+    def __str__(self):
+        return f"Consulta de {self.paciente} com {self.medico} em {self.data_horario}"
+
+
+
+

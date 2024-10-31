@@ -31,3 +31,13 @@ class Usuario(AbstractUser):
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
+
+class Medico(Usuario):
+    especialidade = models.CharField(max_length=100)
+
+    class Meta:
+        verbose_name = 'Médico'
+        verbose_name_plural = 'Médicos'
+
+    def __str__(self):
+        return f'Dr(a). {self.first_name} {self.last_name} - {self.especialidade}'
