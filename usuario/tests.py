@@ -3,7 +3,7 @@ from django.contrib.admin.sites import AdminSite
 from usuario.models import Usuario
 from endereco.models import Endereco
 from usuario.admin import UsuarioAdmin
-from endereco.admin import EnderecoAdmin
+from usuario.admin import EnderecoAdmin
 
 admin_site = AdminSite()
 
