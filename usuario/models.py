@@ -15,7 +15,7 @@ class Usuario(AbstractUser):
     email = models.EmailField(max_length=255, unique=True)  # Já existe no AbstractUser
 
     #chamando endereço
-    endereco = models.OneToOneField(Endereco, verbose_name=("endereço"), on_delete=models.CASCADE, null=True, blank=True)
+    endereco = models.ForeignKey(Endereco, verbose_name=("endereço"), on_delete=models.CASCADE, null=True, blank=True)
 
     groups = models.ManyToManyField(
         Group,
