@@ -5,3 +5,4 @@ from endereco.serializers import EnderecoSerializer
 class EnderecoViewSet(viewsets.ModelViewSet):
     queryset = Endereco.objects.all()
     serializer_class = EnderecoSerializer
+    

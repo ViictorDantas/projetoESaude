@@ -22,15 +22,13 @@ class ConsultaViewSet(viewsets.ModelViewSet):
     def aprovar(self, request, pk=None):
         consulta = self.get_object()
         consulta.aprovar_consulta()
-        serializer = self.get_serializer(consulta)
-        return Response(serializer.data)
+        return Response({"message": "Consulta aprovada", "id": consulta.id})
 
     @action(detail=True, methods=['post'])
     def negar(self, request, pk=None):
         consulta = self.get_object()
         consulta.negar_consulta()
-        serializer = self.get_serializer(consulta)
-        return Response(serializer.data)
+        return Response({"message": "Consulta negada", "id": consulta.id})
 
 class DocumentoPacienteViewSet(viewsets.ModelViewSet):
     queryset = DocumentoPaciente.objects.all()

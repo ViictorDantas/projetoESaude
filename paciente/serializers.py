@@ -16,3 +16,4 @@ class DocumentoPacienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = DocumentoPaciente
         fields = ['id', 'paciente', 'titulo', 'arquivo', 'data_upload', 'descricao']
+        

@@ -54,6 +54,7 @@ class Consulta(models.Model):
 
     @classmethod
     def get_consultas_pendentes(cls):
+        # Retorna todas as consultas que estão pendentes
         return cls.objects.filter(status='PENDENTE')
 
     def aprovar_consulta(self):
